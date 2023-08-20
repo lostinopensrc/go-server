@@ -9,8 +9,8 @@ import (
 )
 
 func main() {
-	fileServer := http.FileServer(http.Dir("./static"))
-	http.Handle("/", fileServer)              // using inbuilt FileServer as handler to directs to index.html under static directory
+	//fileServer := http.FileServer(http.Dir("./static"))
+	http.Handle("/", web.DefaultHandler())    // using inbuilt FileServer as handler to directs to index.html under static directory coming from web package
 	http.HandleFunc("/form", web.FormHandler) // using cusotom FormHandler function defined in web package
 
 	fmt.Printf("Starting server at port 8080\n")

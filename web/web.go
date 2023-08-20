@@ -17,3 +17,8 @@ func FormHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Address: %s\n", Address)
 
 }
+
+func DefaultHandler() http.Handler {
+	FileServer := http.FileServer(http.Dir("./static"))
+	return FileServer
+}
